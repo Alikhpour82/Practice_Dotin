@@ -1,6 +1,6 @@
 package main;
 
-public class OneObjectClass {
+public class FiveObjectClass {
 
 
     // Method for reset the state of object

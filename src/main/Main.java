@@ -3,12 +3,12 @@ package main;
 public class Main {
     public static void main(String[] args) {
         ObjectPool objectPool = new ObjectPool(5);
-        OneObjectClass obj1 = objectPool.acquireObject();
+        FiveObjectClass obj1 = objectPool.acquireObject();
 //        OneObjectClass obj2 = objectPool.acquireObject();
 //        OneObjectClass obj3 = objectPool.acquireObject();
 //        OneObjectClass obj4 = objectPool.acquireObject();
 //        OneObjectClass obj5 = objectPool.acquireObject();
-        OneObjectClass nullObject = objectPool.acquireObject();
+        FiveObjectClass nullObject = objectPool.acquireObject();
         System.out.println(nullObject);
 
         objectPool.releaseObject(obj1);

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ObjectPool {
-    private List<OneObjectClass> availableObjects;
-    private List<OneObjectClass> inUseObjects;
+    private List<FiveObjectClass> availableObjects;
+    private List<FiveObjectClass> inUseObjects;
     private int maxPoolSize;
 
     public ObjectPool(int maxPoolSize) {
@@ -17,18 +17,18 @@ public class ObjectPool {
 
     private void initializePool(){
         for (int i = 0; i < this.maxPoolSize; i++)
-            this.availableObjects.add(new OneObjectClass());
+            this.availableObjects.add(new FiveObjectClass());
     }
 
-    public synchronized OneObjectClass acquireObject(){
+    public synchronized FiveObjectClass acquireObject(){
         if(this.availableObjects.isEmpty())
             return null;
-        OneObjectClass object = this.availableObjects.remove(this.availableObjects.size() - 1);
+        FiveObjectClass object = this.availableObjects.remove(this.availableObjects.size() - 1);
         this.inUseObjects.add(object);
         return object;
     }
 
-    public synchronized void releaseObject(OneObjectClass object){
+    public synchronized void releaseObject(FiveObjectClass object){
         object.reset();
         this.inUseObjects.remove(object);
         this.availableObjects.add(object);
